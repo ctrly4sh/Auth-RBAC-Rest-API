@@ -14,7 +14,7 @@ app.get('/health', (req: Request, res: Response) => {
 
 app.use('/user', userRouter);
 
-const PORT = process.env.PORT || 3001
+const PORT = process.env.PORT || 3001;
 
 async function startServer() {
     try{
