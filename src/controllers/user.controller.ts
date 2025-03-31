@@ -1,5 +1,20 @@
 import { Request, Response } from "express";
 import * as userModel from "../models/user.model"
+import HTTP_STATUS from "../utils/httpStatusCodes";
+import STATUS_MESSAGES from "../utils/statusMessages";
+import { successResponse, errorResponse } from "../utils/responseHandler";
+
+export const getHealth = (req: Request, res: Response): Response | undefined => {
+
+    try{
+         const result = successResponse(res, STATUS_MESSAGES.SUCCESS, "Server Health is okay", HTTP_STATUS.OK) 
+         return   
+
+    }catch(error: any){
+        return errorResponse(res, "Server Health is bad :(", HTTP_STATUS.INTERNAL_SERVER_ERROR, error) 
+    }
+
+}
 
 export const createUser = async (req: Request, res: Response) => {
     try {
