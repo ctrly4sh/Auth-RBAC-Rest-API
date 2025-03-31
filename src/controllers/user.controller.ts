@@ -1,4 +1,4 @@
-import { Request, Response } from "express";
+import { Request, RequestHandler, Response } from "express";
 import * as userModel from "../models/user.model"
 import HTTP_STATUS from "../utils/httpStatusCodes";
 import STATUS_MESSAGES from "../utils/statusMessages";
@@ -12,22 +12,35 @@ export const getHealth = (req: Request, res: Response) => {
     }
 }
 
-export const createUser = async (req: Request, res: Response) => {
+export const createUser = async (req: Request, res: Response): Promise<void> => {
     try {
         
         const {email, password} = req.body;
-        const user = await userModel.createUser(email, password)
-        res.status(201).send({message: "User created successfully", data: user});
+        let user = await userModel.getUserByEmail(email);
+
+        if(user) {
+            errorResponse(res, STATUS_MESSAGES.CONFLICT , HTTP_STATUS.CONFLICT, "User already exists !!" );
+            return;
+        }
+        user = await userModel.createUser(email, password);
+        successResponse(res, STATUS_MESSAGES.CREATED, user, HTTP_STATUS.CREATED)
+        
 
     }catch(error){
-        res.status(401).send({message: "Error creating user"})
+        errorResponse(res, STATUS_MESSAGES.SERVER_ERROR, HTTP_STATUS.INTERNAL_SERVER_ERROR, error);
     }
 }
 
-export const getUsers = async (req: Request, res: Response) => {
+export const getUsers = async (req: Request, res: Response): Promise<void> => {
     try {
+        
+        let {page = "1", limit =  "10"} = req.query;
 
-        const users = await userModel.getUsers();
+        const pageNumber = Math.max(1 , parseInt(page as string, 10) || 1); 
+        const limitNumber = Math.max(1, parseInt(limit as string, 10) || 1);
+        const offset = (pageNumber - 1) * limitNumber;
+
+        const users = await userModel.getUsers({offset, limitNumber});
         res.status(201).send({message: "User fetched successfully", data: users})
 
     }catch(error){
