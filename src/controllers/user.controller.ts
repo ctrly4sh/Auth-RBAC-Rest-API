@@ -4,16 +4,12 @@ import HTTP_STATUS from "../utils/httpStatusCodes";
 import STATUS_MESSAGES from "../utils/statusMessages";
 import { successResponse, errorResponse } from "../utils/responseHandler";
 
-export const getHealth = (req: Request, res: Response): Response | undefined => {
-
+export const getHealth = (req: Request, res: Response) => {
     try{
-         const result = successResponse(res, STATUS_MESSAGES.SUCCESS, "Server Health is okay", HTTP_STATUS.OK) 
-         return   
-
+        successResponse(res, STATUS_MESSAGES.SUCCESS, "Server Health is okay", HTTP_STATUS.OK);
     }catch(error: any){
-        return errorResponse(res, "Server Health is bad :(", HTTP_STATUS.INTERNAL_SERVER_ERROR, error) 
+        errorResponse(res, "Server Health is bad :(", HTTP_STATUS.INTERNAL_SERVER_ERROR, error);
     }
-
 }
 
 export const createUser = async (req: Request, res: Response) => {

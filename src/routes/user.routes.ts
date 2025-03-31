@@ -1,8 +1,5 @@
-import express, {Request, Response} from "express";
+import express, {RequestHandler} from "express";
 import * as userController from "../controllers/user.controller";
-import { successResponse } from "../utils/responseHandler";
-import STATUS_MESSAGES from "../utils/statusMessages";
-import HTTP_STATUS from "../utils/httpStatusCodes";
 
 const router = express.Router();
 
