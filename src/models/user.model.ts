@@ -20,6 +20,10 @@ export const getUserById = async (id: string): Promise<User | null> => {
   return await prisma.user.findUnique({ where: { id } });
 };
 
+export const countUsers = async () => {
+  return await prisma.user.count();
+}
+
 export const getUserByEmail = async (email: string): Promise<User | null> => {
   return await prisma.user.findUnique({where : {email}})
 }

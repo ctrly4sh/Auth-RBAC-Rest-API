@@ -6,18 +6,18 @@ const prisma = new PrismaClient();
 const PORT = process.env.PORT || 3001;
 
 async function startServer() {
-    try{
-
+    try {
         await prisma.$connect();
-        console.log('Neon DB connection successfull');
+        console.log('✅ Neon DB connection successful');
 
         app.listen(PORT, () => {
-            console.log(`Server listening at locahost:${PORT}`);
-        })
+            console.log(`🚀 Server listening at http://localhost:${PORT}`);
+        });
 
-    }catch(error){
-        console.error(`❌Failed to connect to the databse: ${error}`)
+    } catch (error: any) {
+        console.error(`❌ Failed to connect to the database: ${error.message}`);
+        process.exit(1); 
     }
 }
 
-startServer()
+startServer();
