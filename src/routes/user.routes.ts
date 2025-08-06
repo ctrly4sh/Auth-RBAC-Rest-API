@@ -10,5 +10,4 @@ router.get('/get/:id', userController.getUserById);
 router.put('/update/:id', userController.updateUserById)
 router.delete('/delete', userController.deleteUser)
 
-
 export default router;
