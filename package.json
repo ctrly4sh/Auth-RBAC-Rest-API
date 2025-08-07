@@ -1,0 +1,29 @@
+{
+  "name": "auth-rbac-rest-api",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "devDependencies": {
+    "@types/bcrypt": "^6.0.0",
+    "@types/bun": "latest",
+    "@types/express": "^5.0.3",
+    "@types/jsonwebtoken": "^9.0.10",
+    "nodemon": "^3.1.10"
+  },
+  "scripts": {
+    "dev": "bun run src/server.ts",
+    "watch": "bun --watch src/server.ts"
+  },
+  "peerDependencies": {
+    "typescript": "^5.9.2"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.13.0",
+    "bcrypt": "^6.0.0",
+    "dotenv": "^17.2.1",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.17.0",
+    "prisma": "^6.13.0"
+  }
+}
