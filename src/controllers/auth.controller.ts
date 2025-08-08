@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import { generateToken } from "../utils/jwt";
 import bcrypt from "bcrypt";
 import prisma from "../config/database";
-import prismaClient from "@prisma/client";
+import prismaClient, { Prisma } from "@prisma/client";
 
 
 export const signUp = async(req: Request, res: Response) => {
@@ -31,14 +31,16 @@ export const signUp = async(req: Request, res: Response) => {
             }
         })
 
-        if(!Object.values(prismaClient.Role).includes(role)){
+        console.log(`Avaialble roles : ${prismaClient.Role}`, `Recieved role : ${role}`);
+
+        if(!prismaClient.Role || !Object.values(prismaClient.Role).includes(role)){
             return res.status(400).json({message: "Invalid role"});
         }
 
-        const token = generateToken(resgisteredUser.id, resgisteredUser.role);
-        console.log(`Generated token : ${token}`)
-
-        res.status(201).json({message: "User created successfully"})
+        res.status(201).json({
+            message: "User created successfully",
+            data: resgisteredUser
+        })
 
     }catch(error){
         console.error("Error in signing up", error);
@@ -71,3 +73,22 @@ export const signIn = async(req: Request, res: Response) => {
     });        
 
 } 
+
+export const getAllUsers = async(_req: Request, res: Response) => {
+
+    try {
+        
+        const users = await prisma.user.findMany();
+        
+        return res.status(200).json({
+            message : "user fetched succesfully",
+            data: users,
+            count: prisma.user.count()
+        })
+
+    }
+    catch(error){
+        return res.status(500).json({message: "Internal server error"})
+    }
+
+}
