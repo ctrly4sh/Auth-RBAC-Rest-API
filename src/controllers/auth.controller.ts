@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import { generateToken } from "../utils/jwt";
 import bcrypt from "bcrypt";
 import prisma from "../config/database";
-import prismaClient, { Prisma } from "@prisma/client";
+import prismaClient from "@prisma/client";
 
 
 export const signUp = async(req: Request, res: Response) => {
@@ -74,21 +74,3 @@ export const signIn = async(req: Request, res: Response) => {
 
 } 
 
-export const getAllUsers = async(_req: Request, res: Response) => {
-
-    try {
-        
-        const users = await prisma.user.findMany();
-        
-        return res.status(200).json({
-            message : "user fetched succesfully",
-            data: users,
-            count: prisma.user.count()
-        })
-
-    }
-    catch(error){
-        return res.status(500).json({message: "Internal server error"})
-    }
-
-}

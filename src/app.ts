@@ -1,5 +1,6 @@
 import express, {Application, Response} from "express"
-import authRouter from "./routes/auth.routes";
+import authRouter from "./routes/auth.Routes";
+import userRouter from "./routes/user.Routes";
 
 const app: Application = express()
 
@@ -10,5 +11,6 @@ app.get('/ping', (_req, res: Response) => {
 })
 
 app.use("/auth", authRouter);
+app.use("/users", userRouter);
 
 export default app;
