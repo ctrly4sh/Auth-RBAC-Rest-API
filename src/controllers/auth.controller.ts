@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { generateToken } from "../utils/jwt";
+import { generateToken } from "../services/jwt";
 import bcrypt from "bcrypt";
 import prisma from "../config/database";
 import prismaClient from "@prisma/client";

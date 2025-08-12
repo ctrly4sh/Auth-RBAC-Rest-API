@@ -28,6 +28,7 @@
     "helmet": "^8.1.0",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.17.0",
-    "prisma": "^6.13.0"
+    "prisma": "^6.13.0",
+    "ts-node": "^10.9.2"
   }
 }
