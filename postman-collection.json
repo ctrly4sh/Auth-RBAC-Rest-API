@@ -1,0 +1,703 @@
+{
+	"info": {
+		"_postman_id": "8bd18233-0b49-4373-924b-0161f8c8a1fb",
+		"name": "Auth-RBAC-RestAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "45678518"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "signUp",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"admin@gmail.com.com\",\n    \"password\": \"admin1234\",\n    \"role\": \"ADMIN\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3001/auth/signUp",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"auth",
+								"signUp"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "user created",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"user@gmail.com.com\",\n    \"password\": \"user1234\",\n    \"role\": \"USER\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3001/auth/signUp",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"auth",
+										"signUp"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 18 Aug 2025 15:51:14 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 18 Aug 2025 15:51:14 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "276"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"114-36N43xBK3tEFed16SfDPqez69Ig\""
+								},
+								{
+									"key": "Origin-Agent-Cluster",
+									"value": "?1"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "10"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "7"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1755533151"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"User created successfully\",\n    \"data\": {\n        \"id\": \"cmehal8u90003w7uhyo38rx7u\",\n        \"email\": \"user@gmail.com.com\",\n        \"password\": \"$2b$10$Hr1RQH3Od16BJ/Kcp8U7KeZKcB8RcA/iY6y5ODie/7ZjBcw9st5WC\",\n        \"role\": \"USER\",\n        \"createdAt\": \"2025-08-18T15:51:15.201Z\",\n        \"updatedAt\": \"2025-08-18T15:51:15.201Z\"\n    }\n}"
+						},
+						{
+							"name": "admin created",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"admin@gmail.com.com\",\n    \"password\": \"admin1234\",\n    \"role\": \"ADMIN\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3001/auth/signUp",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"auth",
+										"signUp"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 18 Aug 2025 15:52:10 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 18 Aug 2025 15:52:10 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "278"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"116-zSD4952nKJpeGY6s4uE9hD6K++Q\""
+								},
+								{
+									"key": "Origin-Agent-Cluster",
+									"value": "?1"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "10"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "6"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1755533151"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"User created successfully\",\n    \"data\": {\n        \"id\": \"cmehamg7y0004w7uhixwrrn8m\",\n        \"email\": \"admin@gmail.com\",\n        \"password\": \"$2b$10$QG58CSQk6nThweRDqPE/bujZtR0MhJPjzhVyhmTjTTgK1ITfi9VVC\",\n        \"role\": \"ADMIN\",\n        \"createdAt\": \"2025-08-18T15:52:11.422Z\",\n        \"updatedAt\": \"2025-08-18T15:52:11.422Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "signIn",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"admin@gmail.com\",\n    \"password\": \"admin1234\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3001/auth/signIn",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"auth",
+								"signIn"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "User Signin - Access & Refresh",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"user@gmail.com\",\n    \"password\": \"user1234\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3001/auth/signIn",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"auth",
+										"signIn"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 18 Aug 2025 15:55:42 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 18 Aug 2025 15:55:43 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "468"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1d4-yDvIeSVdEhJfQfYRd8XE2AKIEp0\""
+								},
+								{
+									"key": "Origin-Agent-Cluster",
+									"value": "?1"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "10"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "9"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1755533443"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"User signed in successfully\",\n    \"accessToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJjbWVoYWw4dTkwMDAzdzd1aHlvMzhyeDd1Iiwicm9sZSI6IlVTRVIiLCJpYXQiOjE3NTU1MzI1NDMsImV4cCI6MTc1NTUzMzQ0M30.sacZdirvp2WlbD3BO2gryp8mndzyngOVsZMTzEXgeXE\",\n    \"refreshToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJjbWVoYWw4dTkwMDAzdzd1aHlvMzhyeDd1Iiwicm9sZSI6IlVTRVIiLCJpYXQiOjE3NTU1MzI1NDMsImV4cCI6MTc1NjEzNzM0M30.-RtYwwGWcoCwKryTj_omSMAyubvv-AMaql2dhjd7lDE\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Refresh Token",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJjbWVoYXcycjYwMDAzdzdvbnl4cGpjcGU3Iiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzU1NTMyODE4LCJleHAiOjE3NTU1MzM3MTh9.Fht8ZKilmkdRdMBjPQO9WeTuS5Bx17Ap4bJvKdsRO3M",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"refreshToken\" : \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJjbWVoYXcycjYwMDAzdzdvbnl4cGpjcGU3Iiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzU1NTMyODE4LCJleHAiOjE3NTYxMzc2MTh9.7zr_--h4RGBnDiEAmtpsnwixbMPJGVgw43uUt4TLu1M\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3001/auth/refresh",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"auth",
+								"refresh"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Refresh Token",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJjbWVoYXcycjYwMDAzdzdvbnl4cGpjcGU3Iiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzU1NTMyODE4LCJleHAiOjE3NTU1MzM3MTh9.Fht8ZKilmkdRdMBjPQO9WeTuS5Bx17Ap4bJvKdsRO3M",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"refreshToken\" : \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJjbWVoYXcycjYwMDAzdzdvbnl4cGpjcGU3Iiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzU1NTMyODE4LCJleHAiOjE3NTYxMzc2MTh9.7zr_--h4RGBnDiEAmtpsnwixbMPJGVgw43uUt4TLu1M\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3001/auth/refresh",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"auth",
+										"refresh"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 18 Aug 2025 16:04:43 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 18 Aug 2025 16:04:43 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "479"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1df-AD3l7/zJG/Eam7YBj9zFdaft6y0\""
+								},
+								{
+									"key": "Origin-Agent-Cluster",
+									"value": "?1"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "10"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "8"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1755533945"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Refresh token generated successfully\",\n    \"accessToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJjbWVoYXcycjYwMDAzdzdvbnl4cGpjcGU3Iiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzU1NTMzMDg0LCJleHAiOjE3NTU1MzM5ODR9.mtM2YxgnJO1t1jMDHo_8U5MQ3-MnCQY0y-shLKYLmmA\",\n    \"refreshToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJjbWVoYXcycjYwMDAzdzdvbnl4cGpjcGU3Iiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzU1NTMyODE4LCJleHAiOjE3NTYxMzc2MTh9.7zr_--h4RGBnDiEAmtpsnwixbMPJGVgw43uUt4TLu1M\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "get all - Only Admin",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJjbWVoYXcycjYwMDAzdzdvbnl4cGpjcGU3Iiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzU1NTMyODE4LCJleHAiOjE3NTU1MzM3MTh9.Fht8ZKilmkdRdMBjPQO9WeTuS5Bx17Ap4bJvKdsRO3M",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3001/users/allUsers",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"users",
+								"allUsers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getById",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJjbWUzMTB3NXcwMDAwdzdiOGE4ZDVlY243Iiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzU0ODA1Nzg2LCJleHAiOjE3NTQ4MDkzODZ9.t9l2PlNe33uGWy6iMTacWxE4d0mkBr8OiBbPGGYnsj8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"testadmin@gmail.com\",\n    \"password\": \"passwordAdmin\",\n    \"role\": \"ADMIN\"\n}"
+						},
+						"url": {
+							"raw": "localhost:3001/users/user/cme310w5w0000w7b8a8d5ecn7",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"users",
+								"user",
+								"cme310w5w0000w7b8a8d5ecn7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateRole",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJjbWUzMTB3NXcwMDAwdzdiOGE4ZDVlY243Iiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzU0ODA2NDc2LCJleHAiOjE3NTQ4MTAwNzZ9.YTwffxJazTHHTyPctHLRIZGKyjIGxk5uwyAddikGjpU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"testadmin@gmail.com\",\n    \"role\": \"ADMIN\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3001/users/updateRole",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"users",
+								"updateRole"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Server",
+			"item": []
+		},
+		{
+			"name": "ping",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3001/ping",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"ping"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
