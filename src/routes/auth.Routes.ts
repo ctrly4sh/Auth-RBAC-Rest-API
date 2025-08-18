@@ -6,6 +6,6 @@ const authRouter = Router();
 
 authRouter.post("/signup", signUp);
 authRouter.post("/signin", loginRateLimiter,signIn);
-authRouter.post("/refreshToken", refreshTokenHandler)
+authRouter.post("/refresh", refreshTokenHandler)
 
 export default authRouter;

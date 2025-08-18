@@ -105,6 +105,7 @@ export const refreshTokenHandler = async (req: Request, res: Response) => {
         });
 
     }catch(error){
+        console.error("Error in creating refresh token" , error);
         return res.status(500).json({message: "Internal server error"})
     }
 
