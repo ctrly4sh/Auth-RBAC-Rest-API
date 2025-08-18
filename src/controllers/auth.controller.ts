@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { generateToken } from "../services/jwt";
+import { generateToken, generateRefreshToken, verifyRefreshToken } from "../services/auth.services";
 import bcrypt from "bcrypt";
 import prisma from "../config/database";
 import prismaClient from "@prisma/client";
@@ -55,22 +55,58 @@ export const signIn = async(req: Request, res: Response) => {
 
     const user = await prisma.user.findUnique({where: {email}});
 
+    console.log('singin route', user);
+
     if(!user) {
         return res.status(400).json({message: "User not found"});
     }
 
     const isMatch = await bcrypt.compare(password, user.password);
 
+    console.log('isMatch', isMatch);
+
     if(!isMatch){
         return res.status(400).json({message: "Invalid credentials"});
     }
 
     const token = generateToken(user.id, user.role);
+    const refreshToken = await generateRefreshToken(user.id, user.role);
 
     res.status(200).json({
         message: "User signed in successfully", 
-        Token : token
+        accessToken : token,
+        refreshToken: refreshToken
     });        
 
 } 
+
+export const refreshTokenHandler = async (req: Request, res: Response) => {
+
+    try {
+
+        const {refreshToken} = req.body;
+
+        if (!refreshToken) {
+            return res.status(400).json({message: "Refresh token is required"});
+        }
+
+        const payload = await verifyRefreshToken(refreshToken);
+
+        if(!payload){
+            return res.status(400).json({message: "Invalid refresh token"});
+        }
+
+        const accessToken = generateToken(payload.userId, payload.role);
+
+        res.status(200).json({
+            message: "Refresh token generated successfully", 
+            accessToken : accessToken,
+            refreshToken: refreshToken
+        });
+
+    }catch(error){
+        return res.status(500).json({message: "Internal server error"})
+    }
+
+}
 
