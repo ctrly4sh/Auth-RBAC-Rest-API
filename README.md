@@ -2,6 +2,9 @@
 
 A secure and scalable Role-Based Access Control (RBAC) REST API built with Express.js, TypeScript, and Prisma. This API provides authentication and authorization services with JWT tokens and refresh tokens.
 
+Design
+<img src="RBAC-design.png" alt="RBAC Design">
+
 ## 🚀 Features
 
 - **User Authentication**
